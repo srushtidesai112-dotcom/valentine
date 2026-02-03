@@ -1,19 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Valentine</title>
-</head>
-<body style="background:#ffe6eb; text-align:center; padding-top:100px; font-family:Arial;">
-  
-  <h2>Will you be my Valentine? 💕</h2>
-  
-  <button onclick="sayYes()" style="padding:10px 20px; font-size:18px;">Yes 💖</button>
-
-  <script>
-    function sayYes() {
-      document.body.innerHTML = "<h1>It works 💖</h1>";
+  <title>Be My Valentine 💖</title>
+  <style>
+    body {
+      background: #ffe6eb;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
     }
-  </script>
+    button {
+      font-size: 18px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: none;
+      margin: 10px;
+      cursor: pointer;
+    }
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+    #no {
+      background: #ccc;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Will you be my Valentine? 💕</h2>
+
+<button id="yes" onclick="yes()">Yes 💖</button>
+<button id="no" onclick="move()">No 😜</button>
+
+<script>
+/* Romantic background music */
+var music = new Audio("https://www.bensound.com/bensound-music/bensound-love.mp3");
+music.loop = true;
+
+function yes(){
+  music.play();
+  document.body.innerHTML = `
+    <div style="
+      text-align:center;
+      padding:40px;
+      max-width:600px;
+      margin:auto;
+      color:#333;
+    ">
+      <h1 style="color:#ff4d6d;">Happy Valentine’s Day Aaroo 💖</h1>
+
+      <p style="font-size:20px; line-height:1.7; margin-top:20px;">
+        I’m really glad you said yes 🥰<br><br>
+
+        You bring so much warmth, calm, and happiness<br>
+        in the simplest ways and that means a lot to me.<br><br>
+        Every time I see 11:11,<br>
+        I smile a little more because I think of you 🤍<br><br>
+
+        Today is just a small reminder<br>
+        of how special you are to me, always 💕
+      </p>
+
+      <p style="font-size:18px; margin-top:30px;">
+        With lots of love,<br>
+        <strong>ur chompsss ❤️</strong>
+      </p>
+    </div>
+  `;
+}
+
+function move() {
+  var n = document.getElementById("no");
+  n.style.left = Math.random() * 80 + "vw";
+  n.style.top = Math.random() * 80 + "vh";
+}
+</script>
 
 </body>
 </html>
