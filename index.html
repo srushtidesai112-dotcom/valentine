@@ -5,9 +5,9 @@
   <style>
     body {
       background:#ffe6eb;
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       text-align:center;
-      padding-top:100px;
+      padding-top:80px;
     }
     button {
       font-size:18px;
@@ -15,6 +15,7 @@
       border-radius:10px;
       border:none;
       margin:10px;
+      cursor:pointer;
     }
     #yes {
       background:#ff4d6d;
@@ -26,6 +27,7 @@
     }
   </style>
 </head>
+
 <body>
 
 <h2>Will you be my Valentine? 💕</h2>
@@ -34,22 +36,20 @@
 <button id="no" onclick="move()">No 😜</button>
 
 <script>
-  var music = new Audio("https://www.bensound.com/bensound-music/bensound-love.mp3");
+var music = new Audio("https://www.bensound.com/bensound-music/bensound-love.mp3");
 music.loop = true;
-  function yes(){
+
+function yes(){
   music.play();
   document.body.innerHTML = `
     <div style="text-align:center; padding:40px; max-width:600px; margin:auto; color:#333;">
-      
       <h1 style="color:#ff4d6d;">Happy Valentine’s Day Aaroo 💖</h1>
 
-      <img 
-        src="IMG_6064.jpeg" 
-        alt="Us 💖"
+      <img src="IMG_6064.jpeg"
         style="width:260px; max-width:90%; border-radius:20px; margin:20px auto; display:block; box-shadow:0 8px 20px rgba(0,0,0,0.2);"
       >
 
-      <p style="font-size:20px; line-height:1.7; margin-top:20px;">
+      <p style="font-size:20px; line-height:1.7;">
         You’re my 11:11 —<br>
         the kind of magic that shows up at just the right time 🤍<br><br>
         I’m so grateful it’s you, Aaroo.
@@ -59,26 +59,10 @@ music.loop = true;
         With lots of love,<br>
         <strong>Shru ❤️</strong>
       </p>
-
     </div>
   `;
 }
 
-    <p style="font-size:20px; line-height:1.7; margin-top:20px;">
-      I know you would say yes 🥰<br><br>
-      You bring so much warmth, calm, and happiness<br>
-      in the simplest ways and that means a lot to me.Every time I see 11:11,
-      I smile a little more because I think of you 🤍<br><br>
-      Today is just a small reminder<br>
-      of how special you are to me, always 💕
-    </p>
-
-    <p style="font-size:18px; margin-top:30px;">
-      With lots of love, ur chompsss🩷✨
-    </p>
-  </div>
-`;
-}
 function move(){
   var n = document.getElementById("no");
   n.style.left = Math.random()*80 + "vw";
