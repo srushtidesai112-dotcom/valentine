@@ -1,71 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Be My Valentine 💖</title>
-  <style>
-    body {
-      background:#ffe6eb;
-      font-family: Arial, sans-serif;
-      text-align:center;
-      padding-top:80px;
-    }
-    button {
-      font-size:18px;
-      padding:10px 20px;
-      border-radius:10px;
-      border:none;
-      margin:10px;
-      cursor:pointer;
-    }
-    #yes {
-      background:#ff4d6d;
-      color:white;
-    }
-    #no {
-      background:#ccc;
-      position:absolute;
-    }
-  </style>
+  <title>Valentine</title>
 </head>
-
-<body>
-
-<h2>Will you be my Valentine? 💕</h2>
-
-<button id="yes">Yes 💖</button>
-<button id="no">No 😜</button>
+<body style="background:#ffe6eb; text-align:center; padding-top:100px; font-family:Arial;">
   
-<script>
-var music = new Audio("https://www.bensound.com/bensound-music/bensound-love.mp3");
-music.loop = true;
+  <h2>Will you be my Valentine? 💕</h2>
+  
+  <button onclick="sayYes()" style="padding:10px 20px; font-size:18px;">Yes 💖</button>
 
-document.getElementById("yes").addEventListener("click", function () {
-  music.play();
-  document.body.innerHTML = `
-    <div style="text-align:center; padding:40px; max-width:600px; margin:auto; color:#333;">
-      <h1 style="color:#ff4d6d;">Happy Valentine’s Day Aaroo 💖</h1>
+  <script>
+    function sayYes() {
+      document.body.innerHTML = "<h1>It works 💖</h1>";
+    }
+  </script>
 
-      <img src="IMG_6064.jpeg"
-        style="width:260px; max-width:90%; border-radius:20px; margin:20px auto; display:block; box-shadow:0 8px 20px rgba(0,0,0,0.2);"
-      >
-
-      <p style="font-size:20px; line-height:1.7;">
-        You’re my 11:11 —<br>
-        the kind of magic that shows up at just the right time 🤍<br><br>
-        I’m so grateful it’s you, Aaroo.
-      </p>
-
-      <p style="font-size:18px; margin-top:30px;">
-        With lots of love,<br>
-        <strong>Shru ❤️</strong>
-      </p>
-    </div>
-  `;
-});
-
-document.getElementById("no").addEventListener("click", function () {
-  this.style.position = "absolute";
-  this.style.left = Math.random() * 80 + "vw";
-  this.style.top = Math.random() * 80 + "vh";
-});
-</script>
+</body>
+</html>
