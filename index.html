@@ -32,14 +32,14 @@
 
 <h2>Will you be my Valentine? 💕</h2>
 
-<button id="yes" onclick="yes()">Yes 💖</button>
-<button id="no" onclick="move()">No 😜</button>
-
+<button id="yes">Yes 💖</button>
+<button id="no">No 😜</button>
+  
 <script>
 var music = new Audio("https://www.bensound.com/bensound-music/bensound-love.mp3");
 music.loop = true;
 
-function yes(){
+document.getElementById("yes").addEventListener("click", function () {
   music.play();
   document.body.innerHTML = `
     <div style="text-align:center; padding:40px; max-width:600px; margin:auto; color:#333;">
@@ -61,14 +61,11 @@ function yes(){
       </p>
     </div>
   `;
-}
+});
 
-function move(){
-  var n = document.getElementById("no");
-  n.style.left = Math.random()*80 + "vw";
-  n.style.top = Math.random()*80 + "vh";
-}
+document.getElementById("no").addEventListener("click", function () {
+  this.style.position = "absolute";
+  this.style.left = Math.random() * 80 + "vw";
+  this.style.top = Math.random() * 80 + "vh";
+});
 </script>
-
-</body>
-</html>
