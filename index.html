@@ -34,7 +34,10 @@
 <button id="no" onclick="move()">No 😜</button>
 
 <script>
-function yes(){
+  var music = new Audio("https://www.bensound.com/bensound-music/bensound-love.mp3");
+music.loop = true;
+  function yes(){
+  music.play();
   document.body.innerHTML = `
   <div style="
     text-align:center;
