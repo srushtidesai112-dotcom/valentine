@@ -8,6 +8,7 @@
       font-family: Arial, sans-serif;
       text-align: center;
       padding-top: 100px;
+      overflow: hidden;
     }
     button {
       font-size: 18px;
@@ -25,6 +26,17 @@
       background: #ccc;
       position: absolute;
     }
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0.7; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
   </style>
 </head>
 
@@ -35,33 +47,33 @@
 <button id="yes" onclick="yes()">Yes 💖</button>
 <button id="no" onclick="move()">No 😜</button>
 
+<div id="no-msg"></div>
+
 <script>
-/* Romantic background music */
 var music = new Audio("https://www.bensound.com/bensound-music/bensound-love.mp3");
 music.loop = true;
 
 function yes(){
   music.play();
   document.body.innerHTML = `
-    <div style="
-      text-align:center;
-      padding:40px;
-      max-width:600px;
-      margin:auto;
-      color:#333;
-    ">
+    <div style="padding:40px; max-width:600px; margin:auto; color:#333;">
       <h1 style="color:#ff4d6d;">Happy Valentine’s Day Aaroo 💖</h1>
 
       <p style="font-size:20px; line-height:1.7; margin-top:20px;">
-        I’m really glad you said yes 🥰<br><br>
+        Ahhh yes 😌💖... clearly you have excellent taste.<br><br>
 
         You bring so much warmth, calm, and happiness<br>
         in the simplest ways and that means a lot to me.<br><br>
+
         Every time I see 11:11,<br>
         I smile a little more because I think of you 🤍<br><br>
 
         Today is just a small reminder<br>
         of how special you are to me, always 💕
+      </p>
+
+      <p style="font-size:16px; opacity:0.8;">
+        (this is me smiling like an idiot right now 😄❤️)
       </p>
 
       <p style="font-size:18px; margin-top:30px;">
@@ -70,12 +82,28 @@ function yes(){
       </p>
     </div>
   `;
+
+  // floating hearts
+  setInterval(createHeart, 500);
 }
 
 function move() {
   var n = document.getElementById("no");
   n.style.left = Math.random() * 80 + "vw";
   n.style.top = Math.random() * 80 + "vh";
+
+  document.getElementById("no-msg").innerHTML =
+    "Nice try 🤓 but we both know the answer 💕";
+  document.getElementById("no-msg").style.marginTop = "20px";
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
 }
 </script>
 
